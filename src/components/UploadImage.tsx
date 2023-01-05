@@ -7,6 +7,7 @@ import {
   Button,
   HStack,
 } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Icon } from "@chakra-ui/react";
 import { MdOutlineImage, MdVerified } from "react-icons/md";
@@ -130,7 +131,19 @@ export const UploadImage = () => {
                 onClick={handleSubmit}
                 disabled={!canSubmitForm(identityState)}
               >
-                Submit {isLoading ? " ..." : ""}
+                Submit
+                {isLoading ? (
+                  <Spinner
+                    thickness="4px"
+                    speed="0.65s"
+                    emptyColor="gray.200"
+                    color="teal"
+                    size="sm"
+                    ml={4}
+                  />
+                ) : (
+                  ""
+                )}
               </Button>
             </Box>
           </VStack>

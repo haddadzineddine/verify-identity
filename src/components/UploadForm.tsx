@@ -91,10 +91,7 @@ export const UploadForm = () => {
                 onChange={(e) => {
                   identitySetState({
                     ...identityState,
-                    GENDER:
-                      e.target.value.toLowerCase() === "male"
-                        ? "male"
-                        : "female",
+                    GENDER: e.target.value.toLowerCase() === "male" ? "M" : "F",
                   });
                 }}
               >
