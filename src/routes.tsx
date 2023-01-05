@@ -4,6 +4,7 @@ import { ChooseCard } from "./components/ChooseCard";
 import { UploadForm } from "./components/UploadForm";
 import { UploadImage } from "./components/UploadImage";
 import { WebCam } from "./components/WebCam";
+import { Result } from "./components/Result";
 
 export const routes = [
   {
@@ -25,6 +26,10 @@ export const routes = [
   {
     path: "/web-cam/:type",
     element: <WebCam />,
+  },
+  {
+    path: "/result/:decision/:message",
+    element: <Result />,
   },
 ];
 

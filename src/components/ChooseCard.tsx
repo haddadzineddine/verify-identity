@@ -13,7 +13,6 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import IDCard from "../assets/images/id-card.png";
 import { Link } from "react-router-dom";
 export const ChooseCard = () => {
- 
   return (
     <Center w="100vw" h="100vh" backgroundColor="blackAlpha.600">
       <Box
@@ -48,15 +47,15 @@ export const ChooseCard = () => {
               </Highlight>
             </Text>
           </Box>
-          <VStack w="80%">
-            <Link to="/upload-form">
-              <Card
-                w="full"
-                p={4}
-                bgColor="white"
-                borderRadius={16}
-                cursor="pointer"
-              >
+          <VStack w="70%" spacing={8}>
+            <Card
+              w="full"
+              p={4}
+              bgColor="white"
+              borderRadius={16}
+              cursor="pointer"
+            >
+              <Link to="/upload-form">
                 <HStack spacing={6}>
                   <Image boxSize={8} src={IDCard} alt="ID Card" />
                   <Box>
@@ -66,8 +65,26 @@ export const ChooseCard = () => {
                     <Text fontSize="sm">Gouverment-issued personal ID.</Text>
                   </Box>
                 </HStack>
-              </Card>
-            </Link>
+              </Link>
+            </Card>
+
+            <Card
+              w="full"
+              p={4}
+              bgColor="gray.100"
+              borderRadius={16}
+              // cursor="pointer"
+            >
+              <HStack spacing={6}>
+                <Image boxSize={8} src={IDCard} alt="ID Card" />
+                <Box>
+                  <Text fontSize="sm" fontWeight="bold">
+                    Passport
+                  </Text>
+                  <Text fontSize="sm">Your official travel document.</Text>
+                </Box>
+              </HStack>
+            </Card>
           </VStack>
         </VStack>
       </Box>

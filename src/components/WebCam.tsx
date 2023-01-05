@@ -1,7 +1,7 @@
 import { Box, Center, VStack } from "@chakra-ui/react";
 import { useCallback, useContext, useRef, useState } from "react";
 import Webcam from "react-webcam";
-import { ArrowBackIcon, PhoneIcon } from "@chakra-ui/icons";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Icon } from "@chakra-ui/react";
 import { MdCamera } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -49,7 +49,12 @@ export const WebCam = () => {
 
         <Box borderRadius={12} p={4}>
           <Box border="2px solid white">
-            <Webcam audio={false} ref={cardRef} screenshotFormat="image/jpeg" screenshotQuality={1} />
+            <Webcam
+              audio={false}
+              ref={cardRef}
+              screenshotFormat="image/jpeg"
+              screenshotQuality={1}
+            />
           </Box>
         </Box>
 

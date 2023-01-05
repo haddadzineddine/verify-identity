@@ -7,3 +7,8 @@ export type IdentityData = {
     back_ID: string,
     selfi: string
 }
+
+export type IdentityResult = {
+    Decision: boolean,
+    Checking: string,
+}

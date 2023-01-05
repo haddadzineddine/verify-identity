@@ -7,10 +7,10 @@ import {
   VStack,
   Image,
 } from "@chakra-ui/react";
-import IdentityVerifyingPng from "../assets/images/id_v.png";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { IdentityContext } from "../context/IdentityContext";
+import IdentityVerifyingPng from "../assets/images/id_v.png";
 
 const App = () => {
   const { identityState, identitySetState } = useContext(IdentityContext);
