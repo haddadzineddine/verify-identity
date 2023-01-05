@@ -49,7 +49,7 @@ export const WebCam = () => {
 
         <Box borderRadius={12} p={4}>
           <Box border="2px solid white">
-            <Webcam audio={false} ref={cardRef} screenshotFormat="image/jpeg" />
+            <Webcam audio={false} ref={cardRef} screenshotFormat="image/jpeg" screenshotQuality={1} />
           </Box>
         </Box>
 

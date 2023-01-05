@@ -20,3 +20,21 @@ export const canSubmitForm = (identityState: IdentityData) => {
     }
     return false;
 }
+
+
+export const image64ToImageFile = async (base64: string) => {
+    const res = await fetch(base64);
+    const blob = await res.blob();
+    return new File([blob], generateRandomString + ".jpeg");
+
+}
+
+export const generateRandomString = (length: number) => {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
