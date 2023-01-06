@@ -1,22 +1,31 @@
-import { Box, VStack } from '@chakra-ui/react';
+import { Box, HStack, Image, VStack } from '@chakra-ui/react';
 import { useCallback, useContext, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { Icon } from '@chakra-ui/react';
-import { FaCameraRetro } from 'react-icons/fa';
-import { BsFillCircleFill, IoCameraReverse } from 'react-icons/all';
+import { IoIosReverseCamera, BiRepeat } from 'react-icons/all';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import '../assets/styles/camera.css';
 import { IdentityContext } from '../context';
+import 'react-html5-camera-photo/build/css/index.css';
+import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 
 export const WebCam = () => {
   let { type } = useParams();
   const [flipped, setFlipped] = useState(type === 'selfi' ? false : true);
+  const [captureUrl, setCaptureUrl] = useState('');
 
   const { identityState, identitySetState } = useContext(IdentityContext);
   const navigate = useNavigate();
+
+  const handleTakePhoto = (dataUri: string) => {
+    setCaptureUrl(dataUri);
+  };
+
+  const retake = () => {
+    setCaptureUrl('');
+  };
 
   const cardRef = useRef<Webcam>(null);
   const capture = useCallback(() => {
@@ -44,12 +53,13 @@ export const WebCam = () => {
         base: 0,
         md: 36,
       }}
+      pb={6}
     >
       <Box
         display="flex"
         flexDir="column"
         alignItems="center"
-        justifyContent="space-around"
+        justifyContent="space-between"
         h={{
           base: '90vh',
           md: 'full',
@@ -58,50 +68,37 @@ export const WebCam = () => {
       >
         <Box w="full">
           <Link to="/upload-image">
-            <ArrowBackIcon ml={8} mt={10} mb={4} boxSize={8} color="white" />
+            <ArrowBackIcon ml={6} mt={10} mb={4} boxSize={8} color="white" />
           </Link>
         </Box>
-
-        <Box mx={8}>
-          <VStack>
-            <Webcam
-              className={type === 'selfi' ? 'camera-face' : 'camera'}
-              mirrored={flipped ? false : true}
-              audio={false}
-              ref={cardRef}
-              screenshotFormat="image/jpeg"
-              screenshotQuality={1}
-              videoConstraints={{
-                width: type === 'selfi' ? 360 : 720,
-                height: type === 'selfi' ? 330 : 1280,
-                facingMode: flipped ? 'environment' : 'user',
+        <Box mx={6}>
+          {captureUrl ? (
+            <Image src={captureUrl} />
+          ) : (
+            <Camera
+              // idealResolution={{ width: 360, height: 500 }}
+              idealResolution={{ height: 640, width: 480 }}
+              isFullscreen={false}
+              idealFacingMode={flipped ? FACING_MODES.ENVIRONMENT : FACING_MODES.USER}
+              imageType={IMAGE_TYPES.JPG}
+              imageCompression={0.97}
+              onTakePhoto={(dataUri) => {
+                handleTakePhoto(dataUri);
               }}
             />
-          </VStack>
+          )}
         </Box>
-
-        <Box display="flex" justifyContent="space-between" w="80%" alignItems="end" my={4}>
+        <HStack justifyContent="space-between" w="90%">
           <Icon
             onClick={flipCamera}
             cursor="pointer"
-            as={IoCameraReverse}
-            boxSize={8}
+            as={IoIosReverseCamera}
+            boxSize={12}
             color="white"
           />
 
-          <Icon
-            onClick={capture}
-            border="5px solid"
-            borderRadius="50%"
-            p={0.5}
-            cursor="pointer"
-            as={BsFillCircleFill}
-            w="4.5rem"
-            h="4.5rem"
-            color="white"
-          />
-          <Box></Box>
-        </Box>
+          <Icon onClick={retake} cursor="pointer" as={BiRepeat} boxSize={12} color="white" />
+        </HStack>
       </Box>
     </Box>
   );

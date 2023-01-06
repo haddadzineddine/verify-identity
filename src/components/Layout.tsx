@@ -17,7 +17,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <Box
         h={{
           base: '100%',
-          md: '75%',
+          md: '85%',
         }}
         w={{
           base: '100%',

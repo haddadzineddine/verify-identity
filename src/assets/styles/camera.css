@@ -1,9 +1,0 @@
-.camera {
-  border-radius: 16px;
-  border: 6px solid rgba(255, 255, 255, 0.9);
-}
-
-.camera-face {
-  border-radius: 50%;
-  border: 6px solid rgba(255, 255, 255, 0.9);
-}
