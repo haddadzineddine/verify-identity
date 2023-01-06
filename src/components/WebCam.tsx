@@ -1,9 +1,10 @@
-import { Box } from '@chakra-ui/react';
+import { Box, VStack } from '@chakra-ui/react';
 import { useCallback, useContext, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { Icon } from '@chakra-ui/react';
-import { MdCamera, MdFlipCameraIos } from 'react-icons/md';
+import { FaCameraRetro } from 'react-icons/fa';
+import { BsFillCircleFill, IoCameraReverse } from 'react-icons/all';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +13,7 @@ import { IdentityContext } from '../context';
 
 export const WebCam = () => {
   let { type } = useParams();
-  const [flipped, setFlipped] = useState(false);
+  const [flipped, setFlipped] = useState(type === 'selfi' ? false : true);
 
   const { identityState, identitySetState } = useContext(IdentityContext);
   const navigate = useNavigate();
@@ -61,30 +62,45 @@ export const WebCam = () => {
           </Link>
         </Box>
 
-        <Box m={8}>
-          <Webcam
-            className={type === 'selfi' ? 'camera-face' : 'camera'}
-            mirrored={flipped ? false : true}
-            audio={false}
-            ref={cardRef}
-            screenshotFormat="image/jpeg"
-            screenshotQuality={1}
-            videoConstraints={{
-              facingMode: flipped ? 'environment' : 'user',
-            }}
-          />
+        <Box mx={8}>
+          <VStack>
+            <Webcam
+              className={type === 'selfi' ? 'camera-face' : 'camera'}
+              mirrored={flipped ? false : true}
+              audio={false}
+              ref={cardRef}
+              screenshotFormat="image/jpeg"
+              screenshotQuality={1}
+              videoConstraints={{
+                width: type === 'selfi' ? 360 : 720,
+                height: type === 'selfi' ? 330 : 1280,
+                facingMode: flipped ? 'environment' : 'user',
+              }}
+            />
+          </VStack>
         </Box>
 
-        <Box display="flex" justifyContent="space-between" w="80%">
+        <Box display="flex" justifyContent="space-between" w="80%" alignItems="end" my={4}>
           <Icon
             onClick={flipCamera}
             cursor="pointer"
-            as={MdFlipCameraIos}
-            boxSize={16}
+            as={IoCameraReverse}
+            boxSize={8}
             color="white"
           />
 
-          <Icon onClick={capture} cursor="pointer" as={MdCamera} boxSize={16} color="white" />
+          <Icon
+            onClick={capture}
+            border="5px solid"
+            borderRadius="50%"
+            p={0.5}
+            cursor="pointer"
+            as={BsFillCircleFill}
+            w="4.5rem"
+            h="4.5rem"
+            color="white"
+          />
+          <Box></Box>
         </Box>
       </Box>
     </Box>

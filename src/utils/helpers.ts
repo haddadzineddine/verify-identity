@@ -39,11 +39,14 @@ export const generateRandomString = (length: number) => {
   return result;
 };
 
-export const getIdentityResultCheckingAsCorrect = (identityCheckingResultChecking: string | CheckingResult) => {
+export const getIdentityResultCheckingAsCorrect = (
+  identityCheckingResultChecking: string | CheckingResult,
+) => {
   return identityCheckingResultChecking as CheckingResult;
-}
+};
 
-export const getIdentityResultCheckingAsInCorrect = (identityCheckingResultChecking: string | CheckingResult) => {
+export const getIdentityResultCheckingAsInCorrect = (
+  identityCheckingResultChecking: string | CheckingResult,
+) => {
   return identityCheckingResultChecking as string;
-}
-
+};

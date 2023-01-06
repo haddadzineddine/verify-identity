@@ -14,13 +14,13 @@ export type IdentityResult = {
 };
 
 export type CheckingResult = {
-  ID_TYPE: string,
-  ID_NUMBER: string,
-  FIRST_NAME: string,
-  FAMILY_NAME: string,
-  GENDER: string,
-  BIRTHDAY: string,
-  NATIONALITY: string,
-  ISSUING_NATIONALITY: string,
-  EXPIRY_DATE: string
+  ID_TYPE: string;
+  ID_NUMBER: string;
+  FIRST_NAME: string;
+  FAMILY_NAME: string;
+  GENDER: string;
+  BIRTHDAY: string;
+  NATIONALITY: string;
+  ISSUING_NATIONALITY: string;
+  EXPIRY_DATE: string;
 };

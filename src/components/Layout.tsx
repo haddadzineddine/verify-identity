@@ -22,7 +22,7 @@ export const Layout = ({ children }: LayoutProps) => {
         w={{
           base: '100%',
           md: '25rem',
-          lg: '30rem',
+          lg: '27rem',
         }}
         borderRadius={{
           base: 0,
