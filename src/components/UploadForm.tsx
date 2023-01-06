@@ -2,7 +2,7 @@ import { Box, Text, VStack, Input, Select, Button } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { IdentityContext } from '../context/IdentityContext';
+import { IdentityContext } from '../context';
 import { canMoveToUploadImage } from '../utils';
 
 export const UploadForm = () => {

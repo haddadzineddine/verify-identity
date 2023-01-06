@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import { IdentityData } from '../utils/types';
+import { CheckingResult, IdentityData, IdentityResult } from '../utils/types';
 
 export const initialData: IdentityData = {
   FIRST_NAME: '',
@@ -10,6 +10,16 @@ export const initialData: IdentityData = {
   back_ID: '',
   selfi: '',
 };
+
+export const initialResult: IdentityResult = {
+  Decision: false,
+  Checking: '',
+};
+
+export const IdentityCheckingResultContext = createContext({
+  identityCheckingResult: initialResult,
+  SetIdentityCheckingResult: (initialResult: IdentityResult) => {},
+});
 
 export const IdentityContext = createContext({
   identityState: initialData,
@@ -22,9 +32,16 @@ type IdentityProviderProps = {
 
 export const IdentityProvider = ({ children }: IdentityProviderProps) => {
   const [identityState, identitySetState] = useState<IdentityData>(initialData);
+  const [identityCheckingResult, SetIdentityCheckingResult] =
+    useState<IdentityResult>(initialResult);
+
   return (
     <IdentityContext.Provider value={{ identityState, identitySetState }}>
-      {children}
+      <IdentityCheckingResultContext.Provider
+        value={{ identityCheckingResult, SetIdentityCheckingResult }}
+      >
+        {children}
+      </IdentityCheckingResultContext.Provider>
     </IdentityContext.Provider>
   );
 };

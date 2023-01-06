@@ -29,7 +29,7 @@ export const routes = [
     element: <WebCam />,
   },
   {
-    path: '/result/:decision/:message',
+    path: '/result',
     element: <Result />,
   },
 ];

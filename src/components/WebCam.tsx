@@ -1,17 +1,19 @@
 import { Box } from '@chakra-ui/react';
-import { useCallback, useContext, useRef } from 'react';
+import { useCallback, useContext, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { Icon } from '@chakra-ui/react';
-import { MdCamera } from 'react-icons/md';
+import { MdCamera, MdFlipCameraIos } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { IdentityContext } from '../context/IdentityContext';
 import { useNavigate } from 'react-router-dom';
 import '../assets/styles/camera.css';
+import { IdentityContext } from '../context';
 
 export const WebCam = () => {
   let { type } = useParams();
+  const [flipped, setFlipped] = useState(false);
+
   const { identityState, identitySetState } = useContext(IdentityContext);
   const navigate = useNavigate();
 
@@ -25,6 +27,10 @@ export const WebCam = () => {
 
     navigate('/upload-image');
   }, [cardRef]);
+
+  const flipCamera = () => {
+    setFlipped(!flipped);
+  };
 
   return (
     <Box
@@ -58,15 +64,26 @@ export const WebCam = () => {
         <Box m={8}>
           <Webcam
             className={type === 'selfi' ? 'camera-face' : 'camera'}
-            mirrored={true}
+            mirrored={flipped ? false : true}
             audio={false}
             ref={cardRef}
             screenshotFormat="image/jpeg"
             screenshotQuality={1}
+            videoConstraints={{
+              facingMode: flipped ? 'environment' : 'user',
+            }}
           />
         </Box>
 
-        <Box>
+        <Box display="flex" justifyContent="space-between" w="80%">
+          <Icon
+            onClick={flipCamera}
+            cursor="pointer"
+            as={MdFlipCameraIos}
+            boxSize={16}
+            color="white"
+          />
+
           <Icon onClick={capture} cursor="pointer" as={MdCamera} boxSize={16} color="white" />
         </Box>
       </Box>

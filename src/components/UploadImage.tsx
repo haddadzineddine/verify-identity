@@ -5,13 +5,17 @@ import { Icon } from '@chakra-ui/react';
 import { MdOutlineImage, MdVerified } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
-import { IdentityContext, initialData } from '../context/IdentityContext';
 import { useNavigate } from 'react-router-dom';
 import { saveIdentity } from '../services/identity.service';
 import { canSubmitForm } from '../utils';
+import { IdentityCheckingResultContext, IdentityContext, initialData } from '../context';
 
 export const UploadImage = () => {
   const { identityState, identitySetState } = useContext(IdentityContext);
+  const { identityCheckingResult, SetIdentityCheckingResult } = useContext(
+    IdentityCheckingResultContext,
+  );
+
   const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -20,9 +24,10 @@ export const UploadImage = () => {
 
     try {
       const result = await saveIdentity(identityState);
+      SetIdentityCheckingResult(result);
       resetAll();
       setLoading(false);
-      navigate(`/result/${result.Decision}/${result.Checking ?? ''}`);
+      navigate('/result');
     } catch (e) {
       console.log(e);
     } finally {

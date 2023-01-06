@@ -1,4 +1,4 @@
-import { IdentityData } from './types';
+import { CheckingResult, IdentityData } from './types';
 
 export const canMoveToUploadImage = (identityState: IdentityData) => {
   if (
@@ -38,3 +38,12 @@ export const generateRandomString = (length: number) => {
   }
   return result;
 };
+
+export const getIdentityResultCheckingAsCorrect = (identityCheckingResultChecking: string | CheckingResult) => {
+  return identityCheckingResultChecking as CheckingResult;
+}
+
+export const getIdentityResultCheckingAsInCorrect = (identityCheckingResultChecking: string | CheckingResult) => {
+  return identityCheckingResultChecking as string;
+}
+

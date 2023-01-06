@@ -11,7 +11,7 @@ export const ChooseCard = () => {
       </Link>
 
       <VStack spacing={16} h="full">
-        <Box maxW="70%" fontSize="md">
+        <Box maxW="80%" fontSize="md">
           <Text align="center" fontSize="xl" fontWeight="bold">
             Upload ID
           </Text>
@@ -24,8 +24,8 @@ export const ChooseCard = () => {
             </Highlight>
           </Text>
         </Box>
-        <VStack w="70%" spacing={8}>
-          <Card w="full" p={4} bgColor="white" borderRadius={16} cursor="pointer">
+        <VStack w="80%" spacing={8}>
+          <Card w="full" p={3} bgColor="white" borderRadius={16} cursor="pointer">
             <Link to="/upload-form">
               <HStack spacing={6}>
                 <Image boxSize={8} src={IDCard} alt="ID Card" />
@@ -39,7 +39,7 @@ export const ChooseCard = () => {
             </Link>
           </Card>
 
-          <Card w="full" p={4} bgColor="gray.100" borderRadius={16}>
+          <Card w="full" p={3} bgColor="gray.100" borderRadius={16}>
             <HStack spacing={6}>
               <Image boxSize={8} src={IDCard} alt="ID Card" />
               <Box>
