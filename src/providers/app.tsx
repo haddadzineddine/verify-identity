@@ -1,8 +1,6 @@
-import { ChakraProvider } from "@chakra-ui/react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { createContext } from "react";
-import { IdentityData } from "../types";
-import { IdentityProvider } from "../context/IdentityContext";
+import { ChakraProvider } from '@chakra-ui/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { IdentityProvider } from '../context/IdentityContext';
 
 type AppProviderProps = {
   children: React.ReactNode;

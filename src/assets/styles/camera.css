@@ -1,0 +1,7 @@
+.camera {
+  border-radius: 36px;
+}
+
+.camera-face {
+  clip-path: circle(40%);
+}

@@ -1,13 +1,14 @@
-import { Box, Center, VStack } from "@chakra-ui/react";
-import { useCallback, useContext, useRef, useState } from "react";
-import Webcam from "react-webcam";
-import { ArrowBackIcon } from "@chakra-ui/icons";
-import { Icon } from "@chakra-ui/react";
-import { MdCamera } from "react-icons/md";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { IdentityContext } from "../context/IdentityContext";
-import { useNavigate } from "react-router-dom";
+import { Box } from '@chakra-ui/react';
+import { useCallback, useContext, useRef } from 'react';
+import Webcam from 'react-webcam';
+import { ArrowBackIcon } from '@chakra-ui/icons';
+import { Icon } from '@chakra-ui/react';
+import { MdCamera } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { IdentityContext } from '../context/IdentityContext';
+import { useNavigate } from 'react-router-dom';
+import '../assets/styles/camera.css';
 
 export const WebCam = () => {
   let { type } = useParams();
@@ -19,55 +20,56 @@ export const WebCam = () => {
     const imageSrc = cardRef.current?.getScreenshot();
     identitySetState({
       ...identityState,
-      [type ?? ""]: imageSrc,
+      [type ?? '']: imageSrc,
     });
 
-    navigate("/upload-image");
+    navigate('/upload-image');
   }, [cardRef]);
 
   return (
-    <Center w="100vw" h="100vh" backgroundColor="blackAlpha.600">
-      <VStack
-        h={{
-          base: "100%",
-          md: "75%",
-        }}
-        w={{
-          base: "100%",
-          md: "25%",
-        }}
-        border="2px solid white"
-        borderRadius={36}
-        backgroundColor="blackAlpha.700"
+    <Box
+      h={{
+        base: '100vh',
+        md: 'full',
+      }}
+      bgColor="blackAlpha.800"
+      borderRadius={{
+        base: 0,
+        md: 36,
+      }}
+    >
+      <Box
+        display="flex"
+        flexDir="column"
+        alignItems="center"
         justifyContent="space-around"
+        h={{
+          base: '90vh',
+          md: 'full',
+        }}
+        w="full"
       >
-        <Box width="full">
+        <Box w="full">
           <Link to="/upload-image">
             <ArrowBackIcon ml={8} mt={10} mb={4} boxSize={8} color="white" />
           </Link>
         </Box>
 
-        <Box borderRadius={12} p={4}>
-          <Box border="2px solid white">
-            <Webcam
-              audio={false}
-              ref={cardRef}
-              screenshotFormat="image/jpeg"
-              screenshotQuality={1}
-            />
-          </Box>
+        <Box m={8}>
+          <Webcam
+            className={type === 'selfi' ? 'camera-face' : 'camera'}
+            mirrored={true}
+            audio={false}
+            ref={cardRef}
+            screenshotFormat="image/jpeg"
+            screenshotQuality={1}
+          />
         </Box>
 
         <Box>
-          <Icon
-            onClick={capture}
-            cursor="pointer"
-            as={MdCamera}
-            boxSize={16}
-            color="white"
-          />
+          <Icon onClick={capture} cursor="pointer" as={MdCamera} boxSize={16} color="white" />
         </Box>
-      </VStack>
-    </Center>
+      </Box>
+    </Box>
   );
 };

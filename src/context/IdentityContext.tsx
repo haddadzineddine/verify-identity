@@ -1,14 +1,14 @@
-import { createContext, useState } from "react";
-import { IdentityData } from "../types";
+import { createContext, useState } from 'react';
+import { IdentityData } from '../utils/types';
 
 export const initialData: IdentityData = {
-  FIRST_NAME: "",
-  FAMILY_NAME: "",
-  ID_NUMBER: "",
-  GENDER: "male",
-  front_ID: "",
-  back_ID: "",
-  selfi: "",
+  FIRST_NAME: '',
+  FAMILY_NAME: '',
+  ID_NUMBER: '',
+  GENDER: 'male',
+  front_ID: '',
+  back_ID: '',
+  selfi: '',
 };
 
 export const IdentityContext = createContext({
