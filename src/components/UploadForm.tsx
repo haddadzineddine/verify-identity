@@ -9,16 +9,13 @@ export const UploadForm = () => {
   const { identityState, identitySetState } = useContext(IdentityContext);
   return (
     <>
-      <Link to="/choose-card">
+      {/* <Link to="/choose-card">
         <ArrowBackIcon ml={8} mt={10} mb={4} boxSize={6} />
-      </Link>
+      </Link> */}
 
-      <VStack spacing={16} h="full">
+      <VStack spacing={16} mt={12} h="full">
         <Box maxW="70%" fontSize="md">
-          <Text align="center" fontSize="xl" fontWeight="bold">
-            Upload ID
-          </Text>
-          <Text align="center" mt={2}>
+          <Text align="center" mt={2} fontWeight="bold" fontSize="xl">
             Please fill the following fields
           </Text>
         </Box>
@@ -79,7 +76,7 @@ export const UploadForm = () => {
           </VStack>
 
           <Box w="full">
-            <Link to="/upload-image">
+            <Link to="/app">
               <Button
                 py={6}
                 colorScheme="teal"
@@ -88,7 +85,7 @@ export const UploadForm = () => {
                 fontSize="lg"
                 disabled={!canMoveToUploadImage(identityState)}
               >
-                Next
+                Start
               </Button>
             </Link>
           </Box>

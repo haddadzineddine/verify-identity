@@ -1,0 +1,21 @@
+.camera-mob {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  clip-path: polygon(0 16%, 100% 16%, 100% 83%, 0 83%);
+  /* clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%, round 10px); */
+  /* clip-path: inset(0 round 10px); */
+}
+
+.camera {
+  border-radius: 36px;
+}
+
+.camera-face {
+  clip-path: ellipse(36% 40% at 50% 50%);
+}
+
+.camera-mob-face {
+  height: 100%;
+  clip-path: ellipse(36% 42% at 50% 50%);
+}

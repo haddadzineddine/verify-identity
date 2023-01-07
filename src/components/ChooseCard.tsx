@@ -6,19 +6,15 @@ import IDCard from '../assets/images/id-card.png';
 export const ChooseCard = () => {
   return (
     <>
-      <Link to="/">
-        <ArrowBackIcon ml={8} mt={10} mb={4} boxSize={6} />
-      </Link>
-
-      <VStack spacing={16} h="full">
+      <VStack h="90%" justifyContent="space-around">
         <Box maxW="80%" fontSize="md">
-          <Text align="center" fontSize="xl" fontWeight="bold">
-            Upload ID
-          </Text>
-          <Text align="center" mt={6}>
+          <Link to="/app">
+            <ArrowBackIcon ml={8} mt={10} mb={4} boxSize={6} />
+          </Link>
+          <Text align="center" fontWeight="bold" mt={6}>
             Choose the document type you would
           </Text>
-          <Text align="center">
+          <Text align="center" fontWeight="bold">
             <Highlight query="identity" styles={{ px: '1', rounded: 'full', bg: 'teal.100' }}>
               like to identify with.
             </Highlight>
@@ -26,7 +22,7 @@ export const ChooseCard = () => {
         </Box>
         <VStack w="80%" spacing={8}>
           <Card w="full" p={3} bgColor="white" borderRadius={16} cursor="pointer">
-            <Link to="/upload-form">
+            <Link to="/upload-image">
               <HStack spacing={6}>
                 <Image boxSize={8} src={IDCard} alt="ID Card" />
                 <Box>
@@ -51,6 +47,16 @@ export const ChooseCard = () => {
             </HStack>
           </Card>
         </VStack>
+        <Box>
+          <Text fontWeight="bold">
+            <Highlight
+              query="Verifili"
+              styles={{ px: '1', rounded: 'full', bg: 'teal.100', fontSize: 'xl' }}
+            >
+              Powered by Verifili
+            </Highlight>
+          </Text>
+        </Box>
       </VStack>
     </>
   );

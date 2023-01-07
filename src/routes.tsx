@@ -10,15 +10,15 @@ import { Layout } from './components/Layout';
 export const routes = [
   {
     path: '/',
-    element: <App />,
+    element: <UploadForm />,
   },
   {
     path: '/choose-card',
     element: <ChooseCard />,
   },
   {
-    path: '/upload-form',
-    element: <UploadForm />,
+    path: '/app',
+    element: <App />,
   },
   {
     path: '/upload-image',

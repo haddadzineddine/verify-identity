@@ -47,10 +47,7 @@ export const UploadImage = () => {
 
       <VStack spacing={16} h="full">
         <Box maxW="70%" fontSize="md">
-          <Text align="center" fontSize="xl" fontWeight="bold">
-            Upload Images
-          </Text>
-          <Text align="center" mt={2}>
+          <Text align="center" mt={2} fontSize="xl" fontWeight="bold">
             Please upload the following images
           </Text>
         </Box>
