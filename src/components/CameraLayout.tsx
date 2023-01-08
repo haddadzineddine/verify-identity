@@ -1,21 +1,18 @@
 import React from 'react';
 import { Box, Center, Highlight, Text, VStack } from '@chakra-ui/react';
 
-type LayoutProps = {
+type CameraLayoutProps = {
   children: React.ReactNode;
 };
 
-export const Layout = ({ children }: LayoutProps) => {
-  const getWindowDimensions = () => {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  };
-
+export const CameraLayout = ({ children }: CameraLayoutProps) => {
   return (
-    <Center h={getWindowDimensions().height}>
+    <Center
+      h="100vh"
+      style={{
+        background: 'linear-gradient(90deg, rgba(72, 46, 171, 1) 0%, rgba(29, 8, 109, 1) 100%)',
+      }}
+    >
       <VStack
         h={{
           base: '100%',
@@ -35,17 +32,6 @@ export const Layout = ({ children }: LayoutProps) => {
       >
         <Box w="inherit" h="full">
           {children}
-        </Box>
-
-        <Box py={8}>
-          <Text fontWeight="bold">
-            <Highlight
-              query="Verifili"
-              styles={{ px: '1', rounded: 'full', bg: 'purple.100', fontSize: 'xl' }}
-            >
-              Powered by Verifili
-            </Highlight>
-          </Text>
         </Box>
       </VStack>
     </Center>

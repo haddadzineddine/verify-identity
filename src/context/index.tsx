@@ -14,6 +14,13 @@ export const initialData: IdentityData = {
 export const initialResult: IdentityResult = {
   Decision: false,
   Checking: '',
+  Face_Similarity: {
+    Similarity: '0,00%',
+  },
+  Images: {
+    Card_face: '',
+    Selfi_face: '',
+  },
 };
 
 export const IdentityCheckingResultContext = createContext({

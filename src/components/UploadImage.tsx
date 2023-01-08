@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { saveIdentity } from '../services/identity.service';
 import { canSubmitForm } from '../utils';
 import { IdentityCheckingResultContext, IdentityContext, initialData } from '../context';
+import { Layout } from './Layout';
 
 export const UploadImage = () => {
   const { identityState, identitySetState } = useContext(IdentityContext);
@@ -29,6 +30,7 @@ export const UploadImage = () => {
       setLoading(false);
       navigate('/result');
     } catch (e) {
+      navigate('/result');
       console.log(e);
     } finally {
       setLoading(false);
@@ -40,96 +42,98 @@ export const UploadImage = () => {
   };
 
   return (
-    <>
-      <Link to="/upload-form">
-        <ArrowBackIcon ml={8} mt={10} mb={4} boxSize={6} />
-      </Link>
+    <Layout>
+      <Box h="full">
+        <Link to="/choose-card">
+          <ArrowBackIcon ml={8} mt={10} mb={4} boxSize={6} />
+        </Link>
 
-      <VStack spacing={16} h="full">
-        <Box maxW="70%" fontSize="md">
-          <Text align="center" mt={2} fontSize="xl" fontWeight="bold">
-            Please upload the following images
-          </Text>
-        </Box>
-        <VStack h="65%" w="80%" justifyContent="space-between">
-          <VStack w="full" spacing="8" alignContent="center">
-            <HStack spacing={8}>
-              <Link to="/web-cam/front_ID">
-                <Button
-                  leftIcon={<Icon as={MdOutlineImage} />}
-                  colorScheme="green"
-                  justifyContent="flex-start"
-                  variant="solid"
-                  fontSize="sm"
-                  w="14rem"
-                >
-                  Upload Card ID Front
-                </Button>
-              </Link>
-              <Icon color={identityState.front_ID ? 'green' : 'red.400'} as={MdVerified} />
-            </HStack>
-
-            <HStack spacing={8}>
-              <Link to="/web-cam/back_ID">
-                <Button
-                  leftIcon={<Icon as={MdOutlineImage} />}
-                  colorScheme="green"
-                  justifyContent="flex-start"
-                  variant="solid"
-                  fontSize="sm"
-                  w="14rem"
-                >
-                  Upload Card ID Back
-                </Button>
-              </Link>
-
-              <Icon color={identityState.back_ID ? 'green' : 'red.400'} as={MdVerified} />
-            </HStack>
-
-            <HStack spacing={8}>
-              <Link to="/web-cam/selfi">
-                <Button
-                  leftIcon={<Icon as={MdOutlineImage} />}
-                  colorScheme="green"
-                  justifyContent="flex-start"
-                  variant="solid"
-                  fontSize="sm"
-                  w="14rem"
-                >
-                  Upload Selfi
-                </Button>
-              </Link>
-              <Icon color={identityState.selfi ? 'green' : 'red.400'} as={MdVerified} />
-            </HStack>
-          </VStack>
-
-          <Box w="full">
-            <Button
-              py={6}
-              colorScheme="teal"
-              w="full"
-              fontWeight="bold"
-              fontSize="lg"
-              onClick={handleSubmit}
-              disabled={!canSubmitForm(identityState)}
-            >
-              Submit
-              {isLoading ? (
-                <Spinner
-                  thickness="4px"
-                  speed="0.65s"
-                  emptyColor="gray.200"
-                  color="teal"
-                  size="sm"
-                  ml={4}
-                />
-              ) : (
-                ''
-              )}
-            </Button>
+        <VStack spacing={16} h="full">
+          <Box maxW="70%" fontSize="md">
+            <Text align="center" mt={2} fontSize="lg" fontWeight="bold">
+              Please upload the following images
+            </Text>
           </Box>
+          <VStack h="60%" w="80%" justifyContent="space-between">
+            <VStack w="full" spacing="8" alignContent="center">
+              <HStack spacing={8}>
+                <Link to="/web-cam/front_ID">
+                  <Button
+                    leftIcon={<Icon as={MdOutlineImage} />}
+                    colorScheme="purple"
+                    justifyContent="flex-start"
+                    variant="solid"
+                    fontSize="sm"
+                    w="14rem"
+                  >
+                    Upload Card ID Front
+                  </Button>
+                </Link>
+                <Icon color={identityState.front_ID ? 'green' : 'red.400'} as={MdVerified} />
+              </HStack>
+
+              <HStack spacing={8}>
+                <Link to="/web-cam/back_ID">
+                  <Button
+                    leftIcon={<Icon as={MdOutlineImage} />}
+                    colorScheme="purple"
+                    justifyContent="flex-start"
+                    variant="solid"
+                    fontSize="sm"
+                    w="14rem"
+                  >
+                    Upload Card ID Back
+                  </Button>
+                </Link>
+
+                <Icon color={identityState.back_ID ? 'green' : 'red.400'} as={MdVerified} />
+              </HStack>
+
+              <HStack spacing={8}>
+                <Link to="/web-cam/selfi">
+                  <Button
+                    leftIcon={<Icon as={MdOutlineImage} />}
+                    colorScheme="purple"
+                    justifyContent="flex-start"
+                    variant="solid"
+                    fontSize="sm"
+                    w="14rem"
+                  >
+                    Upload Selfi
+                  </Button>
+                </Link>
+                <Icon color={identityState.selfi ? 'green' : 'red.400'} as={MdVerified} />
+              </HStack>
+            </VStack>
+
+            <Box w="full">
+              <Button
+                py={6}
+                colorScheme="purple"
+                w="full"
+                fontWeight="bold"
+                fontSize="lg"
+                onClick={handleSubmit}
+                disabled={!canSubmitForm(identityState)}
+              >
+                Submit
+                {isLoading ? (
+                  <Spinner
+                    thickness="4px"
+                    speed="0.65s"
+                    emptyColor="white"
+                    color="purple"
+                    size="sm"
+                    ml={4}
+                  />
+                ) : (
+                  ''
+                )}
+              </Button>
+            </Box>
+          </VStack>
         </VStack>
-      </VStack>
-    </>
+      </Box>
+    </Layout>
   );
 };

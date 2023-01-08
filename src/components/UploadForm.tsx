@@ -1,18 +1,15 @@
-import { Box, Text, VStack, Input, Select, Button } from '@chakra-ui/react';
+import { Box, Text, VStack, Input, Select, Button, border } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { IdentityContext } from '../context';
 import { canMoveToUploadImage } from '../utils';
+import { Layout } from './Layout';
 
 export const UploadForm = () => {
   const { identityState, identitySetState } = useContext(IdentityContext);
   return (
-    <>
-      {/* <Link to="/choose-card">
-        <ArrowBackIcon ml={8} mt={10} mb={4} boxSize={6} />
-      </Link> */}
-
+    <Layout>
       <VStack spacing={16} mt={12} h="full">
         <Box maxW="70%" fontSize="md">
           <Text align="center" mt={2} fontWeight="bold" fontSize="xl">
@@ -22,7 +19,7 @@ export const UploadForm = () => {
         <VStack h="65%" w="80%" justifyContent="space-between">
           <VStack w="full" spacing="6">
             <Input
-              focusBorderColor="teal.500"
+              focusBorderColor="purple.500"
               placeholder="First name"
               size="lg"
               value={identityState.FIRST_NAME}
@@ -34,7 +31,7 @@ export const UploadForm = () => {
               }}
             />
             <Input
-              focusBorderColor="teal.500"
+              focusBorderColor="purple.500"
               placeholder="Family name"
               size="lg"
               value={identityState.FAMILY_NAME}
@@ -46,7 +43,7 @@ export const UploadForm = () => {
               }}
             />
             <Input
-              focusBorderColor="teal.500"
+              focusBorderColor="purple.500"
               placeholder="ID number"
               size="lg"
               value={identityState.ID_NUMBER}
@@ -59,7 +56,7 @@ export const UploadForm = () => {
             />
             <Select
               variant="filled"
-              focusBorderColor="teal.500"
+              focusBorderColor="purple.500"
               placeholder="Select your gender"
               size="lg"
               value={identityState.GENDER}
@@ -79,7 +76,7 @@ export const UploadForm = () => {
             <Link to="/app">
               <Button
                 py={6}
-                colorScheme="teal"
+                colorScheme="purple"
                 w="full"
                 fontWeight="bold"
                 fontSize="lg"
@@ -91,6 +88,6 @@ export const UploadForm = () => {
           </Box>
         </VStack>
       </VStack>
-    </>
+    </Layout>
   );
 };

@@ -5,7 +5,6 @@ import { UploadForm } from './components/UploadForm';
 import { UploadImage } from './components/UploadImage';
 import { WebCam } from './components/WebCam';
 import { Result } from './components/Result';
-import { Layout } from './components/Layout';
 
 export const routes = [
   {
@@ -35,6 +34,5 @@ export const routes = [
 ];
 
 export const AppRoutes = () => {
-  const element = useRoutes([...routes]);
-  return <Layout>{element}</Layout>;
+  return useRoutes([...routes]);
 };
