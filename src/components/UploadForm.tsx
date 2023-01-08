@@ -1,5 +1,4 @@
-import { Box, Text, VStack, Input, Select, Button, border } from '@chakra-ui/react';
-import { ArrowBackIcon } from '@chakra-ui/icons';
+import { Box, Text, VStack, Input, Select, Button } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { IdentityContext } from '../context';

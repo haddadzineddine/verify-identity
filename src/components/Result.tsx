@@ -11,11 +11,10 @@ import {
 } from '@chakra-ui/react';
 import { Icon } from '@chakra-ui/react';
 import { MdError, MdCheckCircle, MdSettings } from 'react-icons/md';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IdentityCheckingResultContext, initialResult } from '../context';
 import { Layout } from './Layout';
-import { Avatar } from '@chakra-ui/react';
 
 import {
   getIdentityResultCheckingAsCorrect,

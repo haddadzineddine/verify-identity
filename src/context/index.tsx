@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import { CheckingResult, IdentityData, IdentityResult } from '../utils/types';
+import { IdentityData, IdentityResult } from '../utils/types';
 
 export const initialData: IdentityData = {
   FIRST_NAME: '',

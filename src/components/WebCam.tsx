@@ -5,9 +5,9 @@ import { ArrowBackIcon } from '@chakra-ui/icons';
 import { Icon } from '@chakra-ui/react';
 import { BsFillCircleFill, IoCameraReverse, BiRepeat, FcOk } from 'react-icons/all';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import '../assets/styles/camera.css';
 import { IdentityContext } from '../context';
 import { CameraLayout } from './CameraLayout';
+import '../assets/styles/camera.css';
 
 export const WebCam = () => {
   let { type } = useParams();

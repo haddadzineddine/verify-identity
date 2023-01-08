@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Center, Highlight, Text, VStack } from '@chakra-ui/react';
+import { Box, Center, VStack } from '@chakra-ui/react';
 
 type CameraLayoutProps = {
   children: React.ReactNode;
