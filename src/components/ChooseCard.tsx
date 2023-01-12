@@ -8,7 +8,7 @@ export const ChooseCard = () => {
   return (
     <Layout>
       <Box h="full">
-        <Link to="/app">
+        <Link to="/">
           <ArrowBackIcon ml={8} mt={10} boxSize={6} />
         </Link>
         <VStack spacing={16} mt={4} justifyContent="space-around">

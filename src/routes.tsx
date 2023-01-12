@@ -7,16 +7,16 @@ import { WebCam } from './components/WebCam';
 import { Result } from './components/Result';
 
 export const routes = [
-  {
-    path: '/',
-    element: <UploadForm />,
-  },
+  // {
+  //   path: '/',
+  //   element: <UploadForm />,
+  // },
   {
     path: '/choose-card',
     element: <ChooseCard />,
   },
   {
-    path: '/app',
+    path: '/',
     element: <App />,
   },
   {

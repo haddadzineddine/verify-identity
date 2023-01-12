@@ -8,10 +8,10 @@ const App = () => {
   return (
     <Layout>
       <Box h="full">
-        <Link to="/">
+        {/* <Link to="/">
           <ArrowBackIcon ml={8} mt={10} boxSize={6} />
-        </Link>
-        <VStack spacing={16} mt={4} justifyContent="space-around">
+        </Link> */}
+        <VStack spacing={16} mt={14} justifyContent="space-around">
           <Box maxW="80%" fontSize="md">
             <Text align="center" fontSize="xl" fontWeight="bold">
               Verify your Identity
