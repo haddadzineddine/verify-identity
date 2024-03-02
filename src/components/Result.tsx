@@ -32,7 +32,7 @@ export const Result = () => {
 
   return (
     <Layout>
-      <VStack spacing={4} align="stretch">
+      <VStack spacing={4} align="stretch" p={12}>
         <Box>
           <Text fontSize="2xl" fontWeight="bold">
             Result
