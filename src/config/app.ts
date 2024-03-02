@@ -1,4 +1,4 @@
-export const apiUrl = 'http://portal-dns.francecentral.azurecontainer.io';
-export const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb21wYW55IjoiYjkyM2NlMWUtNDMwYi00MmM3LTk2MDYtNjlhMTZjOWYyNGQ4Iiwicm9sZSI6InN1cGVyYWRtaW4ifQ.8dGyYXbC0GkwW3Ai4HKDRkmlA6P60k5msVZMqUNZ-Vc";
+export const apiUrl = 'https://portalback.onrender.com';
+export const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb21wYW55IjoiYWJmNzk3ODUtYmM0ZC00MDI3LTg0YmQtNDY3ZDgyMzVhMWJmIiwicm9sZSI6InN1cGVyYWRtaW4ifQ.XXlbBujRw59o2b-Mbpp0EWqJt7j6oaQNACrBymoCZ-I";
 
 
