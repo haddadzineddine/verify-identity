@@ -9,10 +9,8 @@ export type IdentityData = {
 };
 
 export type IdentityResult = {
-  Decision: boolean;
-  Checking: string | CheckingResult;
-  Face_Similarity: FaceSimilarity;
-  Images: IdentityImage;
+  decision: boolean;
+  face_similarity: string;
 };
 
 export type FaceSimilarity = {
@@ -35,4 +33,23 @@ export type CheckingResult = {
   NATIONALITY: string;
   ISSUING_NATIONALITY: string;
   EXPIRY_DATE: string;
+};
+
+
+type DataConsistency = {
+  FIRST_NAME: string;
+  FAMILY_NAME: string;
+  ID_TYPE: string;
+  ID_NUMBER: string;
+  BIRTHDAY: string;
+  GENDER: string;
+  EXPIRY_DATE: string;
+};
+
+export type InspectionResult = {
+  status: string;
+  data_consistency: DataConsistency;
+  face_match: string;
+  face_similarity: string;
+  document_expired: string;
 };
