@@ -38,11 +38,11 @@ export const Result = () => {
             Result
           </Text>
         </Box>
-        <Box>
+        <Box mb={8}>
           <Text fontSize="lg" fontWeight="bold">
             Checking Result
           </Text>
-          <List spacing={3}>
+          <List spacing={3} mt={4}>
             <ListItem>
               <HStack>
                 <ListIcon as={identityCheckingResult.decision ? MdCheckCircle : MdError} />
@@ -64,7 +64,7 @@ export const Result = () => {
           </List>
         </Box>
 
-        <Button colorScheme="blue" onClick={goHome}>
+        <Button colorScheme="blue" onClick={goHome} mt={12}>
           Go Home
         </Button>
       </VStack>

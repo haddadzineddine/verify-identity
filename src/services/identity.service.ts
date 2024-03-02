@@ -65,7 +65,7 @@ export const saveIdentity = async (identity: IdentityData): Promise<IdentityResu
 
   // 4- create customer inspection
 
-  const inspectionResponse = await api.post<InspectionResult>(`/Onboarding/customers/${customerId}/inspection`, {}, {
+  const inspectionResponse = await api.post<InspectionResult>(`/Onboarding/customers/${customerId}/ispection`, {}, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
